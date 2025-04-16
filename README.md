@@ -1,4 +1,4 @@
-![PFMJS](pfmjs-high-resolution-logo-2.png)
+![PFMJS](pfmjs-high-resolution-logo.png)
 
 <h1 style="font-size: 50px;">PFMJS</h1>
 <h2 style="font-size: 30px;">What is PFMJS?</h2>
