@@ -1,7 +1,3 @@
-const fs = require('fs');
-const http = require('http');
-const timer = require('timer');
+import { sayHello } from './module.js';
 
-fs.readFile('./test.txt');
-http.createServer();
-timer.sleep(1000);
+console.log(sayHello('Krushna'));

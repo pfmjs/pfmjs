@@ -1,5 +1,5 @@
 const path = require('path');
-const { loadModule } = require('./loader');
+const { loadESModule } = require('./loader');
 
 // Load user app
 const scriptPath = process.argv[2];
@@ -8,4 +8,13 @@ if (!scriptPath) {
   process.exit(1);
 }
 
-loadModule(path.resolve(scriptPath));
+async function runScript(scriptPath) {
+  try {
+    const moduleExports = await loadESModule(scriptPath);
+    console.log('Module executed:', moduleExports);
+  } catch (err) {
+    console.error('Error loading script:', err);
+  }
+}
+
+runScript(path.resolve(scriptPath));
