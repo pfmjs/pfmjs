@@ -1,5 +1,8 @@
-// hello.js
-for (let i = 0;i < 10;) {
-    i++
-    console.log(i)
-}
+import * as fs from "../modules/fs.mjs"
+import * as std from "std";
+
+fs.writeFile('./tests/helloWorld.txt', 'hi from helloWorld.txt')
+
+const fileContent = fs.readFile('./tests/helloWorld.txt')
+
+console.log(fileContent)

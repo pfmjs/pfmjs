@@ -1,0 +1,3 @@
+if (hi == 'hi') {
+    console.log('hi')
+}
