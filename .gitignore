@@ -1,0 +1,25 @@
+# Object files & build output
+*.o
+*.out
+*.bin
+*.conf
+
+# Editor/IDE files
+.idea/
+*.swp
+*.swo
+.vscode/
+compat/
+.vscode/settings.json
+.vscode/c_cpp_properties.json
+
+# Build folders
+bin/
+build/
+out/
+doc/
+fuzz/
+examples/
+
+# Mac/Linux extras
+.DS_Store
