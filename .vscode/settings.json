@@ -5,6 +5,7 @@
         "stdio.h": "c",
         "quickjs-libc.h": "c",
         "quickjs.h": "c",
-        "custom_js_module_loader.h": "c"
+        "custom_js_module_loader.h": "c",
+        "malloc.h": "c"
     }
 }

@@ -1,4 +1,4 @@
-#include "quickjs-linux.h"
+#include "quickjs.h"
 #include "quickjs-libc.h"
 #include "cutils.h"
 #include "custom_js_module_loader.h"
