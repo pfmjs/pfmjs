@@ -32,7 +32,7 @@ if (message != NULL && !filePath) {
     printf("message field should be Null if you want to set a file path\n");
 }
 
-if (!message && !filePath, !port) {
+if (!message && !filePath && !port) {
     printf("Usage: pfmServer(port, /* filepath: a specific file or if not avaible use messsage and let this be null */, /*message: if don't want to display a file add a message*/)\n");
 }
 
@@ -291,19 +291,30 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    // Evaluate compiled module
+    /* Execute compiled module */
     JSValue eval_res = JS_EvalFunction(ctx, mod);
     if (JS_IsException(eval_res)) {
         js_std_dump_error(ctx);
     }
     JS_FreeValue(ctx, eval_res);
 
-    // ✅ Ensures all stdout/stderr output is printed
-    js_std_loop(ctx);
-    fflush(stdout);
+    /* 🔥 Drain async jobs (imports, promises, async) */
+    JSContext *ctx1;
+    int err;
+    for (;;) {
+        err = JS_ExecutePendingJob(rt, &ctx1);
+        if (err <= 0)
+            break;
+    }
 
+    /* Optional: std event loop (timers, stdio) */
+    js_std_loop(ctx);
+
+    /* Cleanup (ONLY ONCE) */
     js_std_free_handlers(rt);
     JS_FreeContext(ctx);
     JS_FreeRuntime(rt);
+
     return 0;
+
 }

@@ -31,3 +31,8 @@ doors:
 # Clean
 clean:
 	rm -f $(EXE) $(EXE_WIN) *.o
+
+help:
+	@echo "make bird    → build for Linux"
+	@echo "make doors   → build for Windows"
+	@echo "make clean   → wipe binaries"
